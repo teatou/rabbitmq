@@ -12,10 +12,10 @@
 6. Добавить права на виртуальный хост<br>
 `docker exec rabbitmq rabbitmqctl set_permissions -p customers xu ".*" ".*" ".*"`
 7. Добавить exchange<br>
-`docker exec rabbitmq rabbitmqadmin declare exchange --vhost=customers name=customer_events type=fanout -u percy -p secret durable=true`
+`docker exec rabbitmq rabbitmqadmin declare exchange --vhost=customers name=customer_events type=fanout -u xu -p senjoxu durable=true`
 8. Добавить права на exchange<br>
-`docker exec rabbitmq rabbitmqctl set_topic_permissions -p customers percy customer_events ".*" ".*"`
+`docker exec rabbitmq rabbitmqctl set_topic_permissions -p customers xu customer_events ".*" ".*"`
 9. Добавить exchange с колбэками<br>
-`docker exec rabbitmq rabbitmqadmin declare exchange --vhost=customers name=customer_callbacks type=direct -u percy -p secret durable=true`
+`docker exec rabbitmq rabbitmqadmin declare exchange --vhost=customers name=customer_callbacks type=direct -u xu -p senjoxu durable=true`
 10. Добавить права на exchange с колбэками<br>
-`docker exec rabbitmq rabbitmqctl set_topic_permissions -p customers percy customer_callbacks ".*" ".*"`
+`docker exec rabbitmq rabbitmqctl set_topic_permissions -p customers xu customer_callbacks ".*" ".*"`
